@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="utf-8">
@@ -24,6 +24,9 @@
 <!-- Custom styles -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/style-responsive.css" rel="stylesheet" />
+<link
+	href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+	rel="stylesheet" />
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
 <!--[if lt IE 9]>
@@ -66,7 +69,35 @@
 				</div>
 				<!-- page start-->
 				<h2>Country's Page starts here.</h2>
-				Page content goes here
+				<table id="example" class="table table-striped" style="width: 100%">
+					<thead>
+						<tr>
+							<th>#ID</th>
+							<th>Capital</th>
+							<th>Code</th>
+							<th>Description</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="country:${country_list}">
+							<td th:text="${country.id}"></td>
+							<td th:text="${country.capital}"></td>
+							<td th:text="${country.code}"></td>
+							<td th:text="${country.description}"></td>
+
+						</tr>
+
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>#ID</th>
+							<th>Capital</th>
+							<th>Code</th>
+							<th>Description</th>
+						</tr>
+					</tfoot>
+				</table>
 				<!-- page end-->
 			</section>
 		</section>
@@ -85,6 +116,11 @@
 	</section>
 	<!-- container section end -->
 	<!-- javascripts -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#example').DataTable();
+		});
+	</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<!-- nice scroll -->
