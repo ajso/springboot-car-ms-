@@ -20,20 +20,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class State {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String name;
 	private String capital;
-    private String code;
+	private String code;
 
 	@ManyToOne
-	@JoinColumn(name="countryid", insertable=false, updatable=false)
+	@JoinColumn(name = "countryid", insertable = false, updatable = false)
 	private Country country;
-	
+
 	private Integer countryid;
-	
+
 	private String details;
 
 }

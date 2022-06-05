@@ -1,7 +1,7 @@
 package com.starter.lifseed.com.models;
 
-import java.time.LocalTime;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,39 +21,38 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VehicleHire {
-		
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	
+
 	@ManyToOne
-	@JoinColumn(name="vehicleid", insertable=false, updatable=false)
+	@JoinColumn(name = "vehicleid", insertable = false, updatable = false)
 	private Vehicle vehicle;
 	private Integer vehicleid;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOut;
-	
+
 	private String timeOut;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateIn;
-	
+
 	private String timeIn;
-	
+
 	@ManyToOne
-	@JoinColumn(name="clientid", insertable=false, updatable=false)
+	@JoinColumn(name = "clientid", insertable = false, updatable = false)
 	private Client client;
 	private Integer clientid;
-	
+
 	@ManyToOne
-	@JoinColumn(name="locationid", insertable=false, updatable=false)
+	@JoinColumn(name = "locationid", insertable = false, updatable = false)
 	private Location location;
 	private Integer locationid;
-	
+
 	private String price;
-	
+
 	private String remarks;
 }
-

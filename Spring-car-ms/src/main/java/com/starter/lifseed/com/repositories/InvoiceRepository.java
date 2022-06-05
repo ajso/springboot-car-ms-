@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.starter.lifseed.com.models.Invoice;
 
-
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
 

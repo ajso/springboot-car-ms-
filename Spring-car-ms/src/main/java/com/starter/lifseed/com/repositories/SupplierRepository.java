@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.starter.lifseed.com.models.Supplier;
 
-
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
 

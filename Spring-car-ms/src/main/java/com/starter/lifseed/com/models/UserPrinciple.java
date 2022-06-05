@@ -1,4 +1,5 @@
 package com.starter.lifseed.com.models;
+
 //package com.starter.lifseed.com.models;
 //
 //import java.util.Collection;
@@ -9,7 +10,7 @@ package com.starter.lifseed.com.models;
 //import org.springframework.security.core.userdetails.UserDetails;
 //
 //public class UserPrincipal implements UserDetails {
-//	
+//
 //	private User user;
 //
 //	public UserPrincipal(User user) {

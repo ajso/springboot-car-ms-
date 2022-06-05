@@ -15,22 +15,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Entity
-@Data //enable the lombok to create the getters and setter for us
+@Data // enable the lombok to create the getters and setter for us
 @AllArgsConstructor
 //this helps to avoid infinite recursion.
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Country {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String code;
 	private String capital;
 	private String description;
 	private String nationality;
 	private String continent;
-	
-	@OneToMany(mappedBy="country")
+
+	@OneToMany(mappedBy = "country")
 	private List<State> states;
 
 }

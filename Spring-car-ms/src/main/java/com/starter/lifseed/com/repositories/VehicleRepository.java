@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.starter.lifseed.com.models.Vehicle;
 
 @Repository
-public interface VehicleRepository extends JpaRepository<Vehicle, Integer>{
+public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
 
 }

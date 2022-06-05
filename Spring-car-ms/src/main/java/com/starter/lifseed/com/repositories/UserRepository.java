@@ -9,5 +9,5 @@ import com.starter.lifseed.com.models.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
 	User findByUsername(String username);
-	
+
 }

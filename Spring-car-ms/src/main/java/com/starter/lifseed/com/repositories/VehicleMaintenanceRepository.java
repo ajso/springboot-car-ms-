@@ -5,10 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.starter.lifseed.com.models.VehicleMaintenance;
 
-
 @Repository
-public interface VehicleMaintenanceRepository extends JpaRepository<VehicleMaintenance, Integer>{
-	
-	
+public interface VehicleMaintenanceRepository extends JpaRepository<VehicleMaintenance, Integer> {
 
 }
