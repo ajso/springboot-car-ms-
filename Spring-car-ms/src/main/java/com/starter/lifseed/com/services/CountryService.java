@@ -13,11 +13,16 @@ public class CountryService {
 	
 	//autowired the country repository. this is how to autowire a bean into a service.
 	@Autowired
-	private CountryRepository countryRpository;
+	private CountryRepository countryRepository;
 	
 	//this service will retrieve a list of countries from the mysql database.
 	public List<Country> getAllCountries(){
-		return countryRpository.findAll();
+		return countryRepository.findAll();
+	}
+	
+	//a service to save/submit a new country.
+	public void save(Country country) {
+		countryRepository.save(country);
 	}
 	
 

@@ -60,6 +60,10 @@
 						<h3 class="page-header">
 							<i class="fa fa fa-bars"></i> Pages
 						</h3>
+						<!-- Success Message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully add a new country.</div>
+				</div>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
 							<li><i class="fa fa-bars"></i>Pages</li>
@@ -69,6 +73,10 @@
 				</div>
 				<!-- page start-->
 				<h2>Country's Page starts here.</h2>
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#addModal">New Country</button>
+
+
 				<table id="example" class="table table-striped" style="width: 100%">
 					<thead>
 						<tr>
@@ -80,7 +88,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="country:${country_list}">
+						<tr th:each="country:${countries}">
 							<td th:text="${country.id}"></td>
 							<td th:text="${country.capital}"></td>
 							<td th:text="${country.code}"></td>
@@ -115,6 +123,53 @@
 		</div>
 	</section>
 	<!-- container section end -->
+	<!-- Pop up modal form -->
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form th:action="@{/countries/addNew}" method="post">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="recipient-name" name="description">
+            <!-- The name has to correspond to the names in the model -->
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Capital:</label>
+            <input type="text" class="form-control" id="recipient-name" name="capital">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Code:</label>
+            <input type="text" class="form-control" id="recipient-name" name="code">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nationality:</label>
+            <input type="text" class="form-control" id="recipient-name" name="nationality">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Continent:</label>
+            <input type="text" class="form-control" id="recipient-name" name="continent">
+          </div>
+          
+          
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+	<!-- End popup modal -->
 	<!-- javascripts -->
 	<script type="text/javascript">
 		$(document).ready(function() {
