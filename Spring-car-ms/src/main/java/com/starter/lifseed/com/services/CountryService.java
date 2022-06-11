@@ -1,6 +1,7 @@
 package com.starter.lifseed.com.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,9 @@ public class CountryService {
 		countryRepository.save(country);
 	}
 	
-
+	//function to return a country by ID. 
+	public Optional<Country> findById(Integer id) {
+		return countryRepository.findById(id);
+	}
+	
 }
